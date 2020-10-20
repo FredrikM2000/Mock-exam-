@@ -113,8 +113,8 @@ void task2() {
 		int high = 0;
 		person highp;
 
-		for (int q = 0; q <= people.size()-1; q++) {
-			if (high <= people.at(q).value && people.at(q).value < lasthigh) {
+		for (int q = 0; q <= people.size()-1; q++) {//checks for every person if their value is higher than the high value so you end up with the highest value
+			if (high <= people.at(q).value && people.at(q).value < lasthigh) {//if it is higher than the one that was highest last time it doesn't count
 				high = people.at(q).value;
 				highp = people.at(q);
 			}
@@ -169,7 +169,7 @@ void task3() {
 		switch (move) {
 		case('w'):
 			pY -= 1;
-			if (grid[pY][pX] == '#' || grid[pY][pX] == '|') {
+			if (grid[pY][pX] == '#' || grid[pY][pX] == '|') {// if it hits # or | it doesnt move through it
 				pY += 1;
 			}
 			break;
@@ -195,7 +195,7 @@ void task3() {
 			std::cout << "Not valid";
 		}
 
-		if (pY >= 10) {
+		if (pY >= 10) {//if it tries to go under the grid it can't
 			pY = 9;
 		}
 
@@ -247,11 +247,14 @@ void task4() {
 		int dotsX[5] = {7,1,7,8,4};
 		int dotsY[5] = { 1,4,5,3,9 };
 
-		for (int o = 0; o <= 4; o++) {
+
+		for (int o = 0; o <= 4; o++) {//prints all the dots
 			grid[dotsY[o]][dotsX[o]] = '.';
 		}
 
-		if (dot1 == true) {
+		
+
+		if (dot1 == true) {//if the user has gone over the dot, it will disappear
 			grid[dotsY[0]][dotsX[0]] = ' ';
 		}
 		if (dot2 == true) {
@@ -286,7 +289,7 @@ void task4() {
 		char move = _getch();
 
 		switch (move) {
-		case('w'):
+		case('w'):// if it hits # or | it doesnt move through it
 			pY -= 1;
 			if (grid[pY][pX] == '#' || grid[pY][pX] == '|') {
 				pY += 1;
@@ -314,11 +317,11 @@ void task4() {
 			std::cout << "Not valid";
 		}
 
-		if (pY >= 10) {
+		if (pY >= 10) {//if it tries to go under the grid it can't
 			pY = 9;
 		}
 
-
+		//if it goes over a dot the dot disappears and you gain 5 point
 		if (pY == dotsY[0] && pX == dotsX[0]) {
 			dot1 = true;
 			points += 5;
@@ -437,6 +440,7 @@ int main() {
 				move4 = true;
 			}
 
+			//if the move matches the digit, you will be able to login
 			if (move1 == true && move2 == true && move3 == true && move4 == true) {
 				login = true;
 			}
